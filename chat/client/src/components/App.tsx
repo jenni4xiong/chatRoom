@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddStudent from './AddStudent'
 import StudentList from './StudentList';
 import StudentProfile from './StudentProfile';
@@ -14,11 +14,11 @@ interface IStudent {
 
 const App = (): JSX.Element => {
   const [showModal, setShowModal] = useState<boolean>(false)
-  const [studentList, setStudentList] = useState<IStudent[]>([
-    { name: 'Jennifer', grade: '11', age: '12', picture: 'aksdjla' },
-    { name: 'Allan', grade: '12', age: '11', picture: 'jasdjla' },
-    { name: 'Allan', grade: '15', age: '21', picture: 'sjdlajd' }
-  ])
+  const [studentList, setStudentList] = useState<IStudent[]>([])
+
+  useEffect(() => {
+    getStudents()
+  })
 
   const toggleShowModal = (): void => {
     const newShowModal = !showModal
@@ -26,13 +26,14 @@ const App = (): JSX.Element => {
   }
 
   const getStudents = (): any => {
-    return [{ name: 'Jennifer', grade: '11', age: '12' }]
+    axios.get('http://localhost:8080/students')
+      .then((response) => console.log(response.data))
+      .catch((err) => console.log('err', err))
   }
 
   const addStudent = (student: IStudent): void => {
-    axios.post('/students', student)
+    axios.post('http://localhost:8080/students', student)
       .then(() => getStudents())
-      .then((response) => setStudentList(response.data))
       .catch((err) => console.log('err', err))
   }
 
