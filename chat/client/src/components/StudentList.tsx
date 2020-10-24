@@ -1,15 +1,29 @@
 import React from 'react';
 import '../styles/StudentList.css';
 
+interface IStudent {
+  name: string,
+  grade: string,
+  age: string,
+}
+
 interface IStudentListProps {
-  toggleShowModal: () => void
+  toggleShowModal: () => void,
+  studentList: IStudent[]
 }
 
 const StudentList = (props: IStudentListProps): JSX.Element => {
+
   return (
-    <span className="container">
-      Hello StudentList
-    </span>
+    <table className="container">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Grade</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+    </table>
   );
 }
 

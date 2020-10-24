@@ -20,6 +20,7 @@ const AddStudent = (): JSX.Element => {
         Name:
         <input type="text" value={age} onChange={(e) => setAge(e.target.value)}></input>
       </label>
+      <button type="submit">Add Student</button>
     </form>
   );
 }

@@ -3,9 +3,7 @@ import '../styles/StudentProfile.css';
 
 const StudentProfile = (): JSX.Element => {
   return (
-    <span className="container">
-      Hello StudentProfile
-    </span>
+    <div>Hello student profile</div>
   );
 }
 
