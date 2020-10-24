@@ -9,14 +9,15 @@ interface IStudent {
   name: string,
   grade: string,
   age: string,
+  picture: string,
 }
 
 const App = (): JSX.Element => {
   const [showModal, setShowModal] = useState<boolean>(false)
   const [studentList, setStudentList] = useState<IStudent[]>([
-    { name: 'Jennifer', grade: '11', age: '12' },
-    { name: 'Allan', grade: '12', age: '11' },
-    { name: 'Allan', grade: '15', age: '21' }
+    { name: 'Jennifer', grade: '11', age: '12', picture: 'aksdjla' },
+    { name: 'Allan', grade: '12', age: '11', picture: 'jasdjla' },
+    { name: 'Allan', grade: '15', age: '21', picture: 'sjdlajd' }
   ])
 
   const toggleShowModal = (): void => {
@@ -37,7 +38,7 @@ const App = (): JSX.Element => {
 
   return (
     <div className="column-container">
-      <AddStudent />
+      <AddStudent addStudent={addStudent} />
       <div>
         <StudentList toggleShowModal={toggleShowModal} studentList={studentList} />
         {showModal ? <StudentProfile /> : null}

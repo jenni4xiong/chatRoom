@@ -5,6 +5,7 @@ interface IStudent {
   name: string,
   grade: string,
   age: string,
+  picture: string,
 }
 
 interface IStudentListProps {

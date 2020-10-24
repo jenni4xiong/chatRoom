@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 8080;
 const bodyParser = require('body-parser');
 const db = require('./database.js');
 const pagination = require('./pagination.js');
@@ -41,4 +41,3 @@ app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
 
-app.listen(8080)
