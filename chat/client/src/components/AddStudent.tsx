@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/AddStudent.css';
 
 interface IStudent {
+  id: string,
   name: string,
   grade: string,
   age: string,

@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/StudentList.css';
 
 interface IStudent {
+  id: string,
   name: string,
   grade: string,
   age: string,
