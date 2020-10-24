@@ -4,10 +4,8 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const db = require('./database.js');
 const pagination = require('./pagination.js');
-const auth = require('./auth.js');
 
 app.use(bodyParser.json());
-app.use(auth);
 app.use(express.static('../client/dist'))
 
 app.get('/students', pagination(db.Student), (req, res) => {
