@@ -3,6 +3,7 @@ import AddStudent from './AddStudent'
 import StudentList from './StudentList';
 import StudentProfile from './StudentProfile';
 import '../styles/App.css';
+import axios from 'axios';
 
 interface IStudent {
   name: string,
@@ -21,6 +22,17 @@ const App = (): JSX.Element => {
   const toggleShowModal = (): void => {
     const newShowModal = !showModal
     setShowModal(newShowModal);
+  }
+
+  const getStudents = (): any => {
+    return [{ name: 'Jennifer', grade: '11', age: '12' }]
+  }
+
+  const addStudent = (student: IStudent): void => {
+    axios.post('/students', student)
+      .then(() => getStudents())
+      .then((response) => setStudentList(response.data))
+      .catch((err) => console.log('err', err))
   }
 
   return (
